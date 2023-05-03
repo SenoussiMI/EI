@@ -1,0 +1,29 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Ticket {
+  id          Int      @id @default(autoincrement())
+  title       String   @db.VarChar(100)
+  description String?
+  status      TicketStatus @default(A_FAIRE)
+
+  @@map(name: "tickets")
+}
+
+enum TicketStatus {
+  A_FAIRE
+  EN_COURS
+  TERMINE
+}
+
+
+
