@@ -1,5 +1,6 @@
-const { PrismaClient } = require('@prisma/client')
+//const { Prisma } = require('@prisma/client') marche pas
 
+const { PrismaClient } = require('@prisma/client')
 
 const prisma = new PrismaClient({
     datasources: {
