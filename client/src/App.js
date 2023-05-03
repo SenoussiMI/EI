@@ -5,6 +5,8 @@ import { Route, Switch, Link } from 'react-router-dom';
 import {Nav, Navbar, NavDropdown, Container, Form, Button} from "react-bootstrap";
 import Home from "./composants/Home";
 import Tickets from "./composants/Tickets";
+import AddTicket from './composants/AddTicket';
+import UpdateTicket from './composants/UpdateTicket';
 
 
 function App() {
@@ -50,6 +52,8 @@ function App() {
         <Container>
             <Route exact path="/" component={Home} className="mx-auto"/>
             <Route exact path="/Tickets" component={Tickets} className="mx-auto"/>
+            <Route exact path="/Ajouter" component={AddTicket} className="mx-auto"/>
+            <Route exact path="/:id/Modifier" component={UpdateTicket} className="mx-auto"/>
         </Container>
         </React.Fragment>
         </Switch>

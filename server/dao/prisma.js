@@ -15,6 +15,16 @@ async function getAllTickets() {
   return tickets;
 }
 
+async function getTicketById(id) {
+    const ticket = await prisma.ticket.findUnique({
+      where: {
+        id: parseInt(id)
+      }
+    })
+  
+    return ticket;
+  }
+
 async function addTicket(title, description) {
   const ticket = await prisma.ticket.create({
     data: {
@@ -47,6 +57,7 @@ async function deleteTicket(id) {
 
 module.exports = {
   getAllTickets,
+  getTicketById,
   addTicket,
   updateTicket,
   deleteTicket,

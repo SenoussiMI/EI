@@ -33,6 +33,19 @@ async function deleteTicket(id) {
   }
 }
 
+async function getTicketById(id) {
+    try {
+      const ticket = await dao.getTicketById(id);
+      if (!ticket) {
+        throw new Error(`Ticket with id ${id} not found`);
+      }
+      return ticket;
+    } catch (err) {
+      throw new Error(`Erreur pendant getting ticket by id: ${err.message}`);
+    }
+  }
+  
+
 async function addTicket(title, description) {
   if (!title || !description) {
     throw new Error("Paramètre requis manquant pour adding ticket");
@@ -49,5 +62,6 @@ module.exports = {
   getAllTickets,
   updateTicket,
   deleteTicket,
+  getTicketById,
   addTicket,
 };
